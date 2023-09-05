@@ -1,4 +1,3 @@
-① reddit.sgmodule
 #!name=Reddit
 #!desc=过滤推广, 关 NSFW 提示 @xream
 
