@@ -1,12 +1,14 @@
-#!name=Reddit
-#!desc=过滤推广, 关 NSFW 提示 @xream
+/*************************************
 
-[Script]
-Reddit = type=http-response,pattern=^https?:\/\/gql\.reddit\.com,requires-body=1,max-size=0,timeout=30,script-path=reddit.js
+Reddit 过滤推广, 关 NSFW 提示
+[rewrite_local]
+^https?:\/\/gql\.reddit\.com url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/RedditAD.js
+[mitm]
 
-[MITM]
-hostname = %APPEND%, gql.reddit.com
-② reddit.js
+hostname = gql.reddit.com
+
+*************************************/
+
 let modified;
 let body;
 try {
