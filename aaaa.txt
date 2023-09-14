@@ -1,0 +1,16 @@
+Dim Counter As Integer
+
+Sub FormatCell()
+    Dim Target As Range
+    Set Target = ActiveCell
+
+    If Target.Font.Color = RGB(255, 0, 0) Then
+        Counter = Counter + 1
+        If Counter > 10 Then
+            Target.Font.Color = RGB(0, 0, 0)
+        End If
+    Else
+        Counter = 1
+        Target.Font.Color = RGB(255, 0, 0)
+    End If
+End Sub
