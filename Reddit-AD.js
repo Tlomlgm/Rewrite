@@ -10,9 +10,11 @@ hostname = gql.reddit.com
 *************************************/
 
 let modified;
+let body;
 let Tlomlgm;
 try {
-  Tlomlgm = JSON.parse($response.body.replace(/\"isNsfw\"/gi, '"_isNsfw"'));
+  body = JSON.parse($response.body.replace(/\"isNsfw\"/gi, '"_isNsfw"'));
+  Tlomlgm = body;
   if (Tlomlgm?.data?.subredditInfoByName?.elements?.edges) {
     Tlomlgm.data.subredditInfoByName.elements.edges =
       Tlomlgm.data.subredditInfoByName.elements.edges.filter(
