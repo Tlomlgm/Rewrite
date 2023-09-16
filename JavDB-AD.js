@@ -16,24 +16,24 @@ hostname = api.pxxgg.xyz, api.ujvnmkx.cn, api.yijingluowangluo.xyz
 
 
 var body = $response.body;
-var chxm1023 = JSON.parse(body);
+var Tloml.gm = JSON.parse(body);
 
 const ada = '/ads';
 const adb = '/startup';
 
-//横幅广告
+// 横幅广告
 if ($request.url.indexOf(ada) != -1){
-  chxm1023.data.ads = {};
+  Tloml.gm.data.ads = {};
 }
 
-//公告，开屏
+// 公告，开屏
 if ($request.url.indexOf(adb) != -1){
-  chxm1023.data.splash_ad.enabled = false;
-  chxm1023.data.splash_ad.overtime = 0;
-  chxm1023.data.splash_ad.ad = {};
-  chxm1023.data.feedback.placeholder = "";
-  chxm1023.data.settings.UPDATE_DESCRIPTION = "";
-  chxm1023.data.settings.NOTICE = "";
+  Tloml.gm.data.splash_ad.enabled = false;
+  Tloml.gm.data.splash_ad.overtime = 0;
+  Tloml.gm.data.splash_ad.ad = {};
+  Tloml.gm.data.feedback.placeholder = "";
+  Tloml.gm.data.settings.UPDATE_DESCRIPTION = "";
+  Tloml.gm.data.settings.NOTICE = "";
 }
 
-$done({body : JSON.stringify(chxm1023)});
+$done({ body: JSON.stringify(Tloml.gm) });
