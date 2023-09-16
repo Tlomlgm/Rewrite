@@ -1,19 +1,35 @@
 /*
-#百度不跳转
+#百度防跳转
+#引用地址 https://github.com/app2smile/rules/blob/master/js/baidu-no-redirect.js
 
 [rewrite_local]
+^https?:\/\/boxer\.baidu\.com\/scheme\?scheme url script-response-header https://gitlab.com/RuCu6/QuanX/-/raw/main/Scripts/baidu/baiduNoRedirect.js
 
-^https?:\/\/.*\.baidu\.com\/.+ url script-request-header https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Baidu&anti-jump.js
-
-[mitm] 
-
-hostname = *.baidu.com
-
+[mitm]
+hostname = boxer.baidu.com
 */
 
+const method = $request.method;
+const statusCode = $response.statusCode;
+const url = $request.url;
+let headers = $response.headers;
 
-var hausd0rff = $request.headers;
-hausd0rff['User-Agent'] = 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/16C50 Quark/604.1 T7/10.3 SearchCraft/2.6.3 (Baidu; P1 8.0.0)';
-$done({
-    headers : hausd0rff
-});
+if (method === "GET" && statusCode === "HTTP/1.1 302 Found" && headers.hasOwnProperty("Location")) {
+  if (headers.Location.includes(".apple.com")) {
+    let tokenData = getUrlParamValue(url, "tokenData");
+    if (tokenData !== null) {
+      let tokenDataObj = JSON.parse(decodeURIComponent(tokenData));
+      headers.Location = tokenDataObj.url;
+    }
+  }
+}
+$done({ headers: headers });
+
+function getUrlParamValue(url, queryName) {
+  return Object.fromEntries(
+    url
+      .substring(url.indexOf("?") + 1)
+      .split("&")
+      .map((pair) => pair.split("="))
+  )[queryName];
+}
