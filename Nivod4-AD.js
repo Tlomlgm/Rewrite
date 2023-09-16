@@ -17,7 +17,7 @@
 
 [rewrite_local]
 
-^https?:\/\/.*nivod.*\/($|[0-9a-zA-Z=_/-]+\.html) url script-response-body https://github.com/ddgksf2013/Scripts/raw/master/nivod.js
+^https?:\/\/.*nivod.*\/($|[0-9a-zA-Z=_/-]+\.html) url script-response-body https://github.com/ddgksf2013/Scripts/raw/master/Nivod4-AD.js
 
 [mitm]
 
