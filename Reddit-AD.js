@@ -1,20 +1,19 @@
-/*************************************
-
+/*
 Reddit 过滤推广, 关 NSFW 提示
+
 [rewrite_local]
 ^https?:\/\/gql\.reddit\.com url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Reddit-AD.js
-[mitm]
 
+[mitm]
 hostname = gql.reddit.com
 
-*************************************/
+*/
+
+var body = $response.body;
+var Tlomlgm = JSON.parse(body);
 
 let modified;
-let body;
-let Tlomlgm;
 try {
-  body = JSON.parse($response.body.replace(/\"isNsfw\"/gi, '"_isNsfw"'));
-  Tlomlgm = body;
   if (Tlomlgm?.data?.subredditInfoByName?.elements?.edges) {
     Tlomlgm.data.subredditInfoByName.elements.edges =
       Tlomlgm.data.subredditInfoByName.elements.edges.filter(
