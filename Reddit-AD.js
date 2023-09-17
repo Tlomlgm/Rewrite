@@ -9,24 +9,23 @@ hostname = gql.reddit.com
 
 */
 
-var body = $response.body;
-var Tlomlgm = JSON.parse(body);
-
 let modified;
+let body;
 try {
-  if (Tlomlgm?.data?.subredditInfoByName?.elements?.edges) {
-    Tlomlgm.data.subredditInfoByName.elements.edges =
-      Tlomlgm.data.subredditInfoByName.elements.edges.filter(
+  body = JSON.parse($response.body.replace(/\"isNsfw\"/gi, '"_isNsfw"'));
+  if (body?.data?.subredditInfoByName?.elements?.edges) {
+    body.data.subredditInfoByName.elements.edges =
+      body.data.subredditInfoByName.elements.edges.filter(
         i => i?.node?.__typename !== 'AdPost'
       );
     modified = true;
-  } else if (Tlomlgm?.data?.home?.elements?.edges) {
-    Tlomlgm.data.home.elements.edges = Tlomlgm.data.home.elements.edges.filter(
+  } else if (body?.data?.home?.elements?.edges) {
+    body.data.home.elements.edges = body.data.home.elements.edges.filter(
       i => i?.node?.__typename !== 'AdPost'
     );
     modified = true;
-  } else if (Tlomlgm?.data?.homeV3?.elements?.edges) {
-    Tlomlgm.data.homeV3.elements.edges = Tlomlgm.data.homeV3.elements.edges.filter(
+  } else if (body?.data?.homeV3?.elements?.edges) {
+    body.data.homeV3.elements.edges = body.data.homeV3.elements.edges.filter(
       i => !i?.node?.cells?.some(j => j?.__typename === 'AdMetadataCell')
     );
     modified = true;
@@ -34,7 +33,7 @@ try {
     modified = true;
   }
 } catch (e) {
-  console.log(e);
+  console.log(e)
 } finally {
-  $done(modified ? { body: JSON.stringify(Tlomlgm) } : {});
+  $done(modified ? { body: JSON.stringify(body) } : {});
 }
