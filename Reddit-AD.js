@@ -9,31 +9,26 @@ hostname = gql.reddit.com
 
 */
 
-let modified;
 let body;
 try {
-  body = JSON.parse($response.body.replace(/\"isNsfw\"/gi, '"_isNsfw"'));
-  if (body?.data?.subredditInfoByName?.elements?.edges) {
-    body.data.subredditInfoByName.elements.edges =
-      body.data.subredditInfoByName.elements.edges.filter(
-        i => i?.node?.__typename !== 'AdPost'
+  body = JSON.parse($response.body.replace(/"isNsfw":true/g, '"isNsfw":false'))
+  if (body.data?.children?.commentsPageAds) {
+    body.data.children.commentsPageAds = []
+  } 
+  for (const [k, v] of Object.entries(body.data)) {
+    if (v?.elements?.edges) {
+      body.data[k].elements.edges = v.elements.edges.filter(
+        i =>
+          !['AdPost'].includes(i?.node?.__typename) &&
+          !i?.node?.cells?.some(j => j?.__typename === 'AdMetadataCell') &&
+          !i?.node?.adPayload
       );
-    modified = true;
-  } else if (body?.data?.home?.elements?.edges) {
-    body.data.home.elements.edges = body.data.home.elements.edges.filter(
-      i => i?.node?.__typename !== 'AdPost'
-    );
-    modified = true;
-  } else if (body?.data?.homeV3?.elements?.edges) {
-    body.data.homeV3.elements.edges = body.data.homeV3.elements.edges.filter(
-      i => !i?.node?.cells?.some(j => j?.__typename === 'AdMetadataCell')
-    );
-    modified = true;
-  } else if ($response.body.includes('"isNsfw"')) {
-    modified = true;
+    }
   }
+
+  
 } catch (e) {
-  console.log(e)
+  console.log(e);
 } finally {
-  $done(modified ? { body: JSON.stringify(body) } : {});
+  $done(body ? { body: JSON.stringify(body) } : {});
 }
