@@ -2,10 +2,10 @@
 Reddit 过滤推广, 关 NSFW 提示
 
 [rewrite_local]
-^https?:\/\/gql\.reddit\.com url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Reddit-AD.js
+^https?:\/\/gql(-fed)?\.reddit\.com url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Reddit-AD.js
 
 [mitm]
-hostname = gql.reddit.com
+hostname = gql.reddit.com,gql-fed.reddit.com
 
 */
 
