@@ -3,7 +3,7 @@
 #引用地址 https://github.com/app2smile/rules/blob/master/js/baidu-no-redirect.js
 
 [rewrite_local]
-^https?:\/\/boxer\.baidu\.com\/scheme\?scheme url script-response-header https://gitlab.com/RuCu6/QuanX/-/raw/main/Scripts/baidu/baiduNoRedirect.js
+^https?:\/\/boxer\.baidu\.com\/scheme\?scheme url script-response-header https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Baidu-anti-jump.js
 
 [mitm]
 hostname = boxer.baidu.com
@@ -28,8 +28,8 @@ $done({ headers: headers });
 function getUrlParamValue(url, queryName) {
   return Object.fromEntries(
     url
-      .substring(url.indexOf("?") + 1)
-      .split("&")
-      .map((pair) => pair.split("="))
+      。substring(url.indexOf("?") + 1)
+      。split("&")
+      。map((pair) => pair.split("="))
   )[queryName];
 }
