@@ -3,7 +3,7 @@
 # Ps Express
 [rewrite_local]
 
-^https:\/\/lcs-mobile-cops\.adobe\.io\/mobiles\/access_profile\/v3 url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/PsExpress.js
+^https:\/\/lcs-mobile-cops\.adobe\.io\/mobile_profile url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/PsExpress.js
 
 [mitm] 
 hostname= lcs-mobile-cops.adobe.io, photos.adobe.io
