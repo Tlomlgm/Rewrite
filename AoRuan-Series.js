@@ -27,7 +27,7 @@
 
 [rewrite_local]
 
-^https?:\/\/.*\.(aoscdn\.com|apsapp\.cn) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/AoRuan-Series.js
+^https?:(.+).aoscdn.com/base/vip/v2/vips$ url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/AoRuan-Series.js
 
 [mitm] 
 
