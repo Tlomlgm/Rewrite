@@ -5,7 +5,7 @@
 ^https?:\/\/api\.((pxxgg|hechuangxinxi|yijingluowangluo)\.xyz|ujvnmkx\.cn)\/api url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/JavDB-AD.js
 
 [mitm]
-hostname = api.pxxgg.xyz, api.ujvnmkx.cn, api.yijingluowangluo.xyz
+hostname = api.pxxgg.xyz, api.ujvnmkx.cn, api.yijingluowangluo.xyz, api.hechuangxinxi.xyz
 
 */
 
