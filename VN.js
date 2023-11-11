@@ -1,5 +1,5 @@
 /*
-#VN-视频剪辑
+#VN-视频剪辑 v1.75
 https://apps.apple.com/cn/app/vn-video-editor/id1343581380
 
 [rewrite_local]
