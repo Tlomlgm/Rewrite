@@ -1,5 +1,6 @@
 /*
-#VN-视频剪辑  https://apps.apple.com/cn/app/vn-video-editor/id1343581380
+#VN-视频剪辑
+https://apps.apple.com/cn/app/vn-video-editor/id1343581380
 
 [rewrite_local]
 ^https:\/\/api2\.vlognow\.me\/vn-pay\/api\/v1\/public\/iap\/receipt\/status?(.*?)*$ url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/VN.js
