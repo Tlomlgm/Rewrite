@@ -1,5 +1,5 @@
 /*
-项目名称：JavDB-去广告
+JavDB-AD
 
 [rewrite_local]
 ^https?:\/\/api\.((pxxgg|hechuangxinxi|yijingluowangluo)\.xyz|ujvnmkx\.cn)\/api url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/JavDB-AD.js
