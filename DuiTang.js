@@ -1,4 +1,4 @@
-\*
+/*
 #堆糖
 
 [rewrite_local]
