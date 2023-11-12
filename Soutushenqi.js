@@ -1,5 +1,5 @@
 /*
-搜图神器  (先登录) v1.7.3
+搜图神器 (先登录) v1.7.3
 https://apps.apple.com/cn/app/%E6%90%9C%E5%9B%BE%E7%A5%9E%E5%99%A8/id1576499990
 
 [rewrite_local]
