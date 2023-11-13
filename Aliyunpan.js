@@ -66,9 +66,9 @@ if (url.indexOf(adrive) != -1){
 
 //净化项目
 //if ($request.url.indexOf(hengtiao) != -1){
-  delete Tlomlgm.result;  //横条信息
-  body = JSON.stringify(Tlomlgm);
-}
+  //delete Tlomlgm.result;  //横条信息
+  //body = JSON.stringify(Tlomlgm);
+//}
 
 if ($request.url.indexOf(guolv) != -1){
   Tlomlgm.coreFeatures.items = Tlomlgm.coreFeatures.items.filter(item => item.code !== "AI_ASSISTANT");  //图搜
