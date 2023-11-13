@@ -24,15 +24,15 @@ const hengtiao = '/users/onboard_list';
 const guolv = '/users/home/widgets';
 
 //修改我的-昵称旁边图标
-if (url.indexOf(tubiao) != -1){
-  body = body.replace(/\"membershipIdentity":".*?"/g, '\"membershipIdentity":"svip"').replace(/\"membershipIcon":".*?"/g, '\"membershipIcon":"https://gw.alicdn.com/imgextra/i3/O1CN01iPKCuZ1urjDgiry5c_!!6000000006091-2-tps-60-60.png"').replace(/\"badges":\[.+\]/g, '\"badges":[    {      "code" : "member-shi",      "defaultIcon" : "https://gw.alicdn.com/imgextra/i3/O1CN01iPKCuZ1urjDgiry5c_!!6000000006091-2-tps-60-60.png",      "iconText" : null,      "iconTemplate" : null    }]');
-}
+//if (url.indexOf(tubiao) != -1){
+  //body = body.replace(/\"membershipIdentity":".*?"/g, '\"membershipIdentity":"svip"').replace(/\"membershipIcon":".*?"/g, '\"membershipIcon":"https://gw.alicdn.com/imgextra/i3/O1CN01iPKCuZ1urjDgiry5c_!!6000000006091-2-tps-60-60.png"').replace(/\"badges":\[.+\]/g, '\"badges":[    {      "code" : "member-shi",      "defaultIcon" : "https://gw.alicdn.com/imgextra/i3/O1CN01iPKCuZ1urjDgiry5c_!!6000000006091-2-tps-60-60.png",      "iconText" : null,      "iconTemplate" : null    }]');
+//}
 
 //去除-我的-插条
-if (url.indexOf(chatiao) != -1){
-  delete Tlomlgm.result.guideInfo;
-  body = JSON.stringify(Tlomlgm);
-}
+//if (url.indexOf(chatiao) != -1){
+  //delete Tlomlgm.result.guideInfo;
+  //body = JSON.stringify(Tlomlgm);
+//}
 
 //购买页面的SVIP
 if (url.indexOf(vipa) != -1){
