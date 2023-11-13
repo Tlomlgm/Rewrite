@@ -72,9 +72,9 @@ if (url.indexOf(adrive) != -1){
 
 if ($request.url.indexOf(guolv) != -1){
   Tlomlgm.coreFeatures.items = Tlomlgm.coreFeatures.items.filter(item => item.code !== "AI_ASSISTANT");  //图搜
-  //delete Tlomlgm.signIn;  //登录
-  //delete Tlomlgm.banners; //横幅
-  //delete Tlomlgm.minorBackup;  //设备列表
+  delete Tlomlgm.signIn;  //登录
+  delete Tlomlgm.banners; //横幅
+  delete Tlomlgm.minorBackup;  //设备列表
   //delete Tlomlgm.mainBackup;  //备份还原
   body = JSON.stringify(Tlomlgm);
 }
