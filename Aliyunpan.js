@@ -13,16 +13,16 @@ hostname = *.aliyundrive.com, *.alipan.com
 var body = $response.body;
 var Tlomlgm = JSON.parse(body);
 const url = $request.url;
-const tubiao = '/users/me';
-const chatiao = '/users/tools';
+//const tubiao = '/users/me';
+//const chatiao = '/users/tools';
 const vipa = '/users/vip/info';
 const vipb = '/users/me/vip/info';
-const get = '/user/get';
-const bofang = '/users/feature/list';
-const adrive = '/user/getUserCapacityInfo';
-const hengtiao = '/users/onboard_list';
-const guolv = '/users/home/widgets';
-const gg = '/v2/activity/sign_in_info';
+//const get = '/user/get';
+//const bofang = '/users/feature/list';
+//const adrive = '/user/getUserCapacityInfo';
+//const hengtiao = '/users/onboard_list';
+//const guolv = '/users/home/widgets';
+const gg = '/activity/sign_in_info';
 
 //修改我的-昵称旁边图标
 if (url.indexOf(tubiao) != -1){
