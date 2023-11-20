@@ -1,7 +1,6 @@
 /*
 #美颜相机 v11.7.80
 https://apps.apple.com/cn/app/%E7%BE%8E%E9%A2%9C%E7%9B%B8%E6%9C%BA/id592331499
-**************************************
 
 [rewrite_local]
 ^https:\/\/(api|community)\.meiyan\.com\/(vip|v\d)\/(user_center|user_info|user\/(.*?)) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Meiyanxiangji.js
