@@ -10,15 +10,35 @@ hostname = wallpaper.soutushenqi.com
 
 */
 
-var Tlomlgm = JSON.parse($response.body);
+var body = $response.body;
+var Tlomlgm = JSON.parse(body);
+const user = /account\/(token|info)/;
+const aicl = /cykj_community\/(config\/tools\/.+|ai_draw\/self.+)/;
+const tcad = /home\/dialog/;
 
-Tlomlgm.data.vipPastDueTime = 4092599350000;
-Tlomlgm.data.vipLabel = "高级用户";
-Tlomlgm.data.vipLabelLevel = 4;
-Tlomlgm.data.vipType = 1;
-Tlomlgm.data.pcVipType = 1;
-Tlomlgm.data.pcVipPastDueTime = 4092599349000;
-Tlomlgm.data.vitalityVipPastDueTime = 4092599349000;
-Tlomlgm.data.vitalityPcVipPastDueTime = 4092599349000;
+if(user.test($request.url)){
+   Tlomlgm.data = {...Tlomlgm.data, 
+       "vipPastDueTime" : 4092599349,
+       "vipLabelLevel" : 4,
+       "vipLabel" : "Lv10元老捐赠会员",
+       "pcVipPastDueTime" : 4092599349,
+       "vipType" : 1024,
+       "isVirtual" : 1,
+       "vitalityPcVipPastDueTime" : 4092599349,
+       "pcVipType" : 1024,
+       "vitalityVipPastDueTime" : 4092599349
+     };
+}
 
-$done({body : JSON.stringify(Tlomlgm)});
+if(aicl.test($request.url)){
+   body = body.replace(/\"surplus":\d+/g, '\"surplus":99');
+   body = body.replace(/\"total":\d+/g, '\"total":99');
+   body = body.replace(/\"size":\d+/g, '\"size":0');
+}
+
+if(tcad.test($request.url)){
+   Tlomlgm = {};
+}
+
+body = JSON.stringify(Tlomlgm)
+$done({body});
