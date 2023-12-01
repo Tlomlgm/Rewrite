@@ -78,7 +78,7 @@ if (typeof $response == "undefined") {
         svip_expired_at: 4092599349,
         svip_take_effect: 1,
         vip_type: "s",
-        phone_num: "13145200000",
+        phone_num: "19999999999",
         name: "Tlomlgm",
         avatar: "https://raw.githubusercontent.com/Tlomlgm/Icon/main/messy/Cytq.png",
         bound_status: {
