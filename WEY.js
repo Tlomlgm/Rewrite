@@ -2,6 +2,9 @@
 魏 去掉 发现/商城/
 
 [rewrite_local]
+
+^https:\/\/gw-app\.beantechyun\.com\/app-api\/api\/wey\/v2\.0\/content\/route\/getContentInfo\?nodeId=wey_serviceCH_servicePG_slideMDL url reject-dict
+
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/.+\/content\/route\/getWholeNodeContentInfo url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 
 [mitm]
@@ -22,4 +25,4 @@ for (var i = 0; i < Tlomlgm.data.length; i++) {
   }
 }
 
-$done({body: JSON.stringify(Tlomlgmo)});
+$done({body: JSON.stringify(Tlomlgm)});
