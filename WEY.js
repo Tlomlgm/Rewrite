@@ -21,7 +21,7 @@ for (var i = 0; i < Tlomlgm.data.length; i++) {
   let indexB = Tlomlgm.data[i].contentMessageList.findIndex(item => item.title === '服务');
 
   if (indexA !== -1 && indexB !== -1) {
-    [Tlomlgm.data[i].contentMessageList[indexA], Tlomlgm.data[i].contentMessageList[indexB]] = [Tlomlgmo.data[i].contentMessageList[indexB], Tlomlgmo.data[i].contentMessageList[indexA]];
+    [Tlomlgm.data[i].contentMessageList[indexA], Tlomlgm.data[i].contentMessageList[indexB]] = [Tlomlgm.data[i].contentMessageList[indexB], Tlomlgm.data[i].contentMessageList[indexA]];
   }
 }
 
