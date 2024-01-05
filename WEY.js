@@ -12,17 +12,10 @@ hostname = gw-app.beantechyun.com
 
 */
 
-var chxm1023 = JSON.parse($response.body);
+var Tlomlgm = JSON.parse($response.body);
 
-for (var i = 0; i < chxm1023.data.length; i++) {
-  chxm1023.data[i].contentMessageList = chxm1023.data[i].contentMessageList.filter(item => item.title !== '发现' && item.title !== '商城');
-  
-  let indexA = chxm1023.data[i].contentMessageList.findIndex(item => item.title === '爱车');
-  let indexB = chxm1023.data[i].contentMessageList.findIndex(item => item.title === '服务');
-
-  if (indexA !== -1 && indexB !== -1) {
-    [chxm1023.data[i].contentMessageList[indexA], chxm1023.data[i].contentMessageList[indexB]] = [chxm1023.data[i].contentMessageList[indexB], chxm1023.data[i].contentMessageList[indexA]];
-  }
+for (var i = 0; i < Tlomlgm.data.length; i++) {
+  Tlomlgm.data[i].contentMessageList = Tlomlgm.data[i].contentMessageList.filter(item => item.title !== '发现' && item.title !== '商城');
 }
 
-$done({body: JSON.stringify(chxm1023)});
+$done({body: JSON.stringify(Tlomlgm)});
