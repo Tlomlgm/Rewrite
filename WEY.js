@@ -51,7 +51,7 @@ if (huiyyuan.test($request.url)) {
 }
 
 if (Car.test($request.url)) {
-    $response.body = $response.body.replace(/"scmsModelName":"VV7"/g, '"scmsModelName":"VV7 GT PHEV"');
+    $response.body = $response.body.replace(/"scmsModelName":"VV7"/, '"scmsModelName":"VV7 GT PHEV"');
 }
 
 $done({ body: JSON.stringify(WEY) });
