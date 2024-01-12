@@ -23,7 +23,6 @@ var WEY = JSON.parse($response.body);
 const Alter = /contentType=MENU/;
 const AD = /(getContentInfo|contentType=APPSECONDAD)/;
 const My = /getUserInfo/;
-const Car = /acquireVehicles/;
 const huiyyuan = /querySumPoint/;
 
 if (Alter.test($request.url)) {
@@ -33,7 +32,7 @@ if (Alter.test($request.url)) {
 }
 
 if (AD.test($request.url)) {
-    WEY.data = [];
+    WEY.data = [];//去掉，发现商城，模块
 }
 
 if (My.test($request.url)) {
