@@ -4,10 +4,13 @@ WEY
 [rewrite_local]
 #个人界面
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/userAuth\/route\/getUserInfo url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
+
 #车体图 型号
-^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v2\.0\/vehicle\/acquireVehicles url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
+^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v2\.0\/vehicle url response-body "scmsModelName":"VV7" response-body "scmsModelName":"VV7 GT PHEV"
+
 #会员积分
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/point\/querySumPoint url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
+
 #优化底栏+净化AD
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/(wey\/.+|.+)\/content\/route\/(getWholeNodeContentInfo\?contentType=(MENU|APPSECONDAD)|getContentInfo) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 
@@ -48,10 +51,6 @@ if (My.test($request.url)) {
 if (huiyyuan.test($request.url)) {
     WEY.data.remindPoint = 999999999;
     WEY.data.totalPoint = 999999999;
-}
-
-if (Car.test($request.url)) {
-    $response.body = $response.body.replace(/"scmsModelName" : "VV7",/g, '"scmsModelName" : "VV7 GT PHEV",');
 }
 
 $done({ body: JSON.stringify(WEY) });
