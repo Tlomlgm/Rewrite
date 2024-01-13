@@ -4,6 +4,7 @@ WEY
 [rewrite_local]
 #个人界面
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/userAuth\/route\/getUserInfo url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
+^https:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/complaintsComments\/getCollectCount url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 
 #会员积分
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/point\/querySumPoint url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
@@ -17,8 +18,7 @@ hostname = gw-app.beantechyun.com
 */
 var WEY = JSON.parse($response.body);
 const Alter = /contentType=MENU/;
-const AD = /(getContentInfo|;
-contentType=APPSECONDAD)/;
+const AD = /(getContentInfo|contentType=APPSECONDAD)/;
 const My = /getUserInfo/;
 const Sc = /getCollectCount/;
 const huiyyuan = /querySumPoint/;
@@ -34,8 +34,8 @@ if (AD.test($request.url)) {
 }
 
 if (My.test($request.url)) {
-    WEY.data.showBrandName = "VV7 GT PHEV ";
-    WEY.data.joinBoardName = "会长";//个人分会名字
+    WEY.data.showBrandName = "GT PHEV ";
+    WEY.data.joinBoardName = "永臻分会";//个人分会名字
     WEY.data.numberOfSubscribed = 99999;//个人订阅
     WEY.data.threadPraisedNumber = "99999";//个人获赞
     WEY.data.likeOtherThreadNumber = 99999;//我的点赞
@@ -46,9 +46,13 @@ if (My.test($request.url)) {
     WEY.data.levelCode = "wvip8";//VIP等级
 }
 
+if (Sc.test($request.url)) {
+    WEY.data.data = "99999";//我的收藏
+}
+
 if (huiyyuan.test($request.url)) {
-    WEY.data.remindPoint = 9999999999999999999;
-    WEY.data.totalPoint = 9999999999999999999;
+    WEY.data.remindPoint = 999999999;
+    WEY.data.totalPoint = 999999999;
 }
 
 $done({ body: JSON.stringify(WEY) });
