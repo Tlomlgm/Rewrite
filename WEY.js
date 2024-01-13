@@ -4,7 +4,7 @@ WEY
 [rewrite_local]
 #个人界面
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/userAuth\/route\/getUserInfo url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
-^https:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/complaintsComments\/getCollectCount url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
+^https:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/complaintsComments\/getCollectCount url response-body "data":0 response-body "data":99999
 
 #会员积分
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/point\/querySumPoint url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
@@ -20,7 +20,6 @@ var WEY = JSON.parse($response.body);
 const Alter = /contentType=MENU/;
 const AD = /(getContentInfo|contentType=APPSECONDAD)/;
 const My = /getUserInfo/;
-const Sc = /getCollectCount/;
 const huiyyuan = /querySumPoint/;
 
 if (Alter.test($request.url)) {
@@ -44,11 +43,6 @@ if (My.test($request.url)) {
     WEY.data.fansNumber = 99999;//我的粉丝
     WEY.data.replyNumber = 99999;//我的评论
     WEY.data.levelCode = "wvip8";//VIP等级
-}
-
-if (Sc.test($request.url)) {
-    let modifiedResponse = $response.body.replace(/"data":.+?}/, '"data":"99999"}');
-    $done({ body: modifiedResponse });
 }
 
 if (huiyyuan.test($request.url)) {
