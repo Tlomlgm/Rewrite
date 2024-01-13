@@ -47,7 +47,8 @@ if (My.test($request.url)) {
 }
 
 if (Sc.test($request.url)) {
-    WEY.data.data = "99999";//我的收藏
+    let modifiedResponse = $response.body.replace(/"data":.+?}/, '"data":"99999"}');
+    $done({ body: modifiedResponse });
 }
 
 if (huiyyuan.test($request.url)) {
