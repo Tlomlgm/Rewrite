@@ -4,7 +4,6 @@ WEY
 [rewrite_local]
 #个人界面
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/userAuth\/route\/getUserInfo url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
-^https:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/complaintsComments\/getCollectCount url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 
 #会员积分
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/point\/querySumPoint url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
@@ -45,10 +44,6 @@ if (My.test($request.url)) {
     WEY.data.fansNumber = 99999;//我的粉丝
     WEY.data.replyNumber = 99999;//我的评论
     WEY.data.levelCode = "wvip8";//VIP等级
-}
-
-if (Sc.test($request.url)) {
-    WEY.data.data = "99999";//我的收藏
 }
 
 if (huiyyuan.test($request.url)) {
