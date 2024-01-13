@@ -45,8 +45,8 @@ if (My.test($request.url)) {
 }
 
 if (huiyyuan.test($request.url)) {
-    WEY.data.remindPoint = 99999999999999999999999;
-    WEY.data.totalPoint = 99999999999999999999999;
+    WEY.data.remindPoint = 9999999999999999999;
+    WEY.data.totalPoint = 9999999999999999999;
 }
 
 $done({ body: JSON.stringify(WEY) });
