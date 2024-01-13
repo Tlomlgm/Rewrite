@@ -33,8 +33,9 @@ if (AD.test($request.url)) {
 }
 
 if (My.test($request.url)) {
-    WEY.data.showBrandName = "GT PHEV ";
-    WEY.data.joinBoardName = "永臻分会";//个人分会名字
+    WEY.data.nick = "A";
+    WEY.data.showBrandName = "VV7 GT PHEV ";
+    WEY.data.joinBoardName = "会长";//个人分会名字
     WEY.data.numberOfSubscribed = 99999;//个人订阅
     WEY.data.threadPraisedNumber = "99999";//个人获赞
     WEY.data.likeOtherThreadNumber = 99999;//我的点赞
@@ -46,8 +47,8 @@ if (My.test($request.url)) {
 }
 
 if (huiyyuan.test($request.url)) {
-    WEY.data.remindPoint = 999999999;
-    WEY.data.totalPoint = 999999999;
+    WEY.data.remindPoint = 99999999999;
+    WEY.data.totalPoint = 99999999999;
 }
 
 $done({ body: JSON.stringify(WEY) });
