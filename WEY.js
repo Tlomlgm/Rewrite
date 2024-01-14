@@ -4,7 +4,7 @@ WEY
 [rewrite_local]
 #个人界面
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/userAuth\/route\/getUserInfo url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
-^https:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/complaintsComments\/getCollectCount url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEYSC.js
+^https:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/complaintsComments\/getCollectCount url response-body "data":0 response-body "data":99999
 
 #会员积分
 ^https?:\/\/gw-app\.beantechyun\.com\/app-api\/api\/v1\.0\/point\/querySumPoint url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
