@@ -33,7 +33,7 @@ if (AD.test($request.url)) {
 }
 
 if (My.test($request.url)) {
-    WEY.data.nick = "A";
+    WEY.data.nick = "99999";
     WEY.data.showBrandName = "VV7 GT PHEV ";
     WEY.data.joinBoardName = "会长";//个人分会名字
     WEY.data.numberOfSubscribed = 99999;//个人订阅
