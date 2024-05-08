@@ -3,7 +3,7 @@ Pixiv 移除广告
 
 [rewrite_local]
 
-https:\/\/(?:app-api\.pixiv\.net\/v2\/user\/detail|oauth\.secure\.pixiv\.net\/auth\/token) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Pixiv.js
+https:\/\/(?:app-api\.pixiv\.net\/v2\/user\/detail|oauth\.secure\.pixiv\.net\/auth\/token) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/PixivAD.js
 
 [mitm] 
 hostname = oauth.secure.pixiv.net, app-api.pixiv.net
