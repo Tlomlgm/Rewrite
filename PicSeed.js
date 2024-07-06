@@ -27,7 +27,7 @@ if (typeof $response == "undefined") {
   };
 
   const data = {
-    "expires_date": "2099-12-31T12:00:00Z",
+    "expires_date": "2099-9-9T12:00:00Z",
     "original_purchase_date": "2023-09-01T11:00:00Z",
     "purchase_date": "2023-09-01T11:00:00Z",
     "ownership_type": "PURCHASED",
