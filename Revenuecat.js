@@ -32,12 +32,12 @@
 
 [rewrite_local]
 #修改
-^https?:\/\/api-\paywalls.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Revenuecat.js
+^https?:\/\/api-paywalls\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Revenuecat.js
 
 ^https?:\/\/api\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Revenuecat.js
 
 #清理
-^https?:\/\/api-\paywalls.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) url script-request-header https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Revenuecat.js
+^https?:\/\/api-paywalls\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) url script-request-header https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Revenuecat.js
 
 ^https?:\/\/api\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) url script-request-header https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/Revenuecat.js
 
