@@ -3,7 +3,7 @@
 ^https:\/\/dualstack-restios\.amap\.com\/v3\/geocode\/regeo  url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/AABB.js
 
 [mitm]
-hostname =
+hostname =restios.amap.com
 
 */
 var url = $request.url;
