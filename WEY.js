@@ -74,7 +74,8 @@ if (Huiyuan.test($request.url)) {
 }
 
 if (Weizhi.test($request.url)) {
-    WEY.regeo.pois[0].name = "隔在远远乡"; // 位置
+    if (WEY.regeocode && WEY.regeocode.pois && WEY.regeocode.pois.length > 0) {
+        WEY.regeocode.pois[0].name = "隔在远远乡"; // 位置
 }
 
 if (Complaints.test($request.url)) {
