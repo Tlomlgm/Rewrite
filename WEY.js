@@ -8,10 +8,10 @@ WEY 
 ^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/v1\.0\/complaintsComments\/getCollectCount url response-body "data":0 response-body "data":99999
 
 #爱车界面
-^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/v2\.1\/vehicle\/ script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
+^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/v2\.1\/vehicle url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 
 #位置
-^https:\/\/(?:dualstack-)?restios\.amap\.com\/v3\/geocode\/regeo script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
+^https:\/\/(?:dualstack-)?restios\.amap\.com\/v3\/geocode\/regeo url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 
 #会员积分
 ^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/v1\.0\/point\/querySumPoint url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
