@@ -1,11 +1,14 @@
 /*
-WEY 
+WEY 
 
 [rewrite_local]
 
 #个人界面
 ^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/v1\.0\/userAuth\/route\/getUserInfo url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 ^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/v1\.0\/complaintsComments\/getCollectCount url response-body "data":0 response-body "data":99999
+
+#爱车界面
+^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/v2\.1\/vehicle\/ script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 
 #会员积分
 ^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/v1\.0\/point\/querySumPoint url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
@@ -22,6 +25,7 @@ const Alter = /contentType=MENU/;
 const AD = /(getContentInfo|contentType=APPSECONDAD)/;
 const My = /getUserInfo/;
 const huiyyuan = /querySumPoint/;
+const Chepai = /vehicle/;
 
 if (Alter.test($request.url)) {
     for (var i = 0; i < WEY.data.length; i++) {
@@ -45,6 +49,10 @@ if (My.test($request.url)) {
     WEY.data.fansNumber = 99999;//我的粉丝
     WEY.data.replyNumber = 99999;//我的评论
     WEY.data.levelCode = "wvip8";//VIP等级
+}
+
+if (Chepai.test($request.url)) {
+    WEY.data.licenseNumber =我有所念人;
 }
 
 if (huiyyuan.test($request.url)) {
