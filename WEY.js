@@ -35,7 +35,7 @@ const My = /getUserInfo/; // 我的
 const Huiyuan = /querySumPoint/; // 会员积分
 const Aiche = /\/vehicle\/acquireVehicles(\?.*)?$/; // 爱车
 const Weizhi = /regeo/; // 位置
-const Complaints = /\/complaintsComments\/getCollectCount/; // 投诉评论
+const Complaints = /\/complaintsComments\/getCollectCount/; //修复评论
 
 // 根据请求 URL 匹配不同的逻辑
 if (Alter.test($request.url)) {
@@ -50,13 +50,13 @@ if (AD.test($request.url)) {
 
 if (My.test($request.url)) {
     WEY.data.nick = "99999"; // 昵称
-    WEY.data.numberOfSubscribed = 99999; // 个人订阅
-    WEY.data.threadPraisedNumber = "99999"; // 个人获赞
-    WEY.data.likeOtherThreadNumber = 99999; // 我的点赞
-    WEY.data.collectNumber = "99999"; // 我的收藏
-    WEY.data.concernNumber = 99999; // 我的关注
-    WEY.data.fansNumber = 99999; // 我的粉丝
-    WEY.data.replyNumber = 99999; // 我的评论
+    WEY.data.numberOfSubscribed = 99999; // 订阅
+    WEY.data.threadPraisedNumber = "99999"; // 获赞
+    WEY.data.likeOtherThreadNumber = 99999; // 点赞
+    WEY.data.collectNumber = "99999"; // 收藏
+    WEY.data.concernNumber = 99999; // 关注
+    WEY.data.fansNumber = 99999; // 粉丝
+    WEY.data.replyNumber = 99999; // 评论
     WEY.data.levelCode = "wvip8"; // VIP 等级
 }
 
@@ -77,10 +77,9 @@ if (Weizhi.test($request.url)) {
     WEY.regeo.pois[0].name = "隔在远远乡"; // 位置
 }
 
-// 新增投诉评论的规则处理
 if (Complaints.test($request.url)) {
     if (WEY.data !== undefined) {
-        WEY.data = 99999; // 将 data 修改为 99999
+        WEY.data = 99999; // 修复评论
     }
 }
 
