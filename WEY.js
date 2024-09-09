@@ -30,7 +30,7 @@ const Alter = /contentType=MENU/; // 发现 商城 Tab
 const AD = /(getContentInfo|contentType=APPSECONDAD)/; // 开屏广告
 const My = /getUserInfo/; // 我的
 const Huiyuan = /querySumPoint/; // 会员积分
-const Aiche = /\/vehicle\/$/; // 爱车，确保路径末尾为 /vehicle/
+const Aiche = /\/vehicle\/acquireVehicles/; // 爱车
 const Weizhi = /regeo/; // 位置
 
 if (Alter.test($request.url)) {
