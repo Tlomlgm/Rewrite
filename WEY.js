@@ -1,5 +1,5 @@
 /*
-WEY 
+WEY 
 
 [rewrite_local]
 
@@ -10,6 +10,9 @@ WEY
 #爱车界面
 ^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/v2\.1\/vehicle\/ script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 
+#位置
+^https:\/\/(?:dualstack-)?restios\.amap\.com\/v3\/geocode\/regeo script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
+
 #会员积分
 ^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/v1\.0\/point\/querySumPoint url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 
@@ -17,15 +20,18 @@ WEY
 ^https:\/\/gw-app-gateway\.gwmapp-w\.com\/app-api\/api\/(wey\/.+|.+)\/content\/route\/(getWholeNodeContentInfo\?contentType=(MENU|APPSECONDAD)|getContentInfo) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/WEY.js
 
 [mitm]
-hostname = gw-app-gateway.gwmapp-w.com
+hostname = gw-app-gateway.gwmapp-w.com,dualstack-restios.amap.com
 
 */
+
 var WEY = JSON.parse($response.body);
-const Alter = /contentType=MENU/;
-const AD = /(getContentInfo|contentType=APPSECONDAD)/;
-const My = /getUserInfo/;
-const Huiyyuan = /querySumPoint/;
-const Chepai = /vehicle/;
+const Alter = /contentType=MENU/;//发现 商城 Tab
+const AD = /(getContentInfo|contentType=APPSECONDAD)/;//开屏广告
+const My = /getUserInfo/;//我的
+const Huiyuan = /querySumPoint/;//会员积分
+const Aiche = /vehicle/;//爱车
+const Weizhi = /regeo/;//位置
+
 
 if (Alter.test($request.url)) {
     for (var i = 0; i < WEY.data.length; i++) {
@@ -49,13 +55,17 @@ if (My.test($request.url)) {
     WEY.data.levelCode = "wvip8";//VIP等级
 }
 
-if (Chepai.test($request.url)) {
-    WEY.data.licenseNumber = "我有所念人";
+if (Aiche.test($request.url)) {
+    WEY.data.licenseNumber = "我有所念人";//车牌号
+    WEY.data.material90Url = "https://s2.loli.net/2024/09/09/YkSMRctE1zjfUyB.png";//车体图
 }
 
-if (Huiyyuan.test($request.url)) {
-    WEY.data.remindPoint = 999999999999;
-    WEY.data.totalPoint = 999999999999;
+if (Huiyuan.test($request.url)) {
+    WEY.data.remindPoint = 999999999999;//积分
+    WEY.data.totalPoint = 999999999999;//积分
+}
+if (Weizhi.test($request.url)) {
+    WEY.regeo.pois[0].name = "隔在远远乡";//位置
 }
 
 $done({ body: JSON.stringify(WEY) });
