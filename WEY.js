@@ -25,26 +25,24 @@ hostname = gw-app-gateway.gwmapp-w.com,dualstack-restios.amap.com
 */
 
 var WEY = JSON.parse($response.body);
+
 const Alter = /contentType=MENU/; // 发现 商城 Tab
 const AD = /(getContentInfo|contentType=APPSECONDAD)/; // 开屏广告
 const My = /getUserInfo/; // 我的
 const Huiyuan = /querySumPoint/; // 会员积分
-const Aiche = /vehicle/; // 爱车
+const Aiche = /\/vehicle\/$/; // 爱车，确保路径末尾为 /vehicle/
 const Weizhi = /regeo/; // 位置
 
-// 移除发现和商城 Tab
 if (Alter.test($request.url)) {
     for (var i = 0; i < WEY.data.length; i++) {
         WEY.data[i].contentMessageList = WEY.data[i].contentMessageList.filter(item => item.title !== '发现' && item.title !== '商城');
     }
 }
 
-// 清空广告数据
 if (AD.test($request.url)) {
     WEY.data = [];
 }
 
-// 修改个人界面信息
 if (My.test($request.url)) {
     WEY.data.nick = "99999"; // 昵称
     WEY.data.numberOfSubscribed = 99999; // 个人订阅
@@ -57,31 +55,22 @@ if (My.test($request.url)) {
     WEY.data.levelCode = "wvip8"; // VIP 等级
 }
 
-// 修改爱车界面信息
 if (Aiche.test($request.url)) {
-    console.log("Vehicle URL matched.");
-    if (WEY.data && Array.isArray(WEY.data) && WEY.data.length > 0) {
-        console.log("Before modification:", WEY.data[0]);
+    // 确保 data 是数组并且有元素
+    if (WEY.data && WEY.data.length > 0) {
         WEY.data[0].licenseNumber = "我有所念人"; // 车牌号
         WEY.data[0].material90Url = "https://s2.loli.net/2024/09/09/YkSMRctE1zjfUyB.png"; // 车体图
-        console.log("After modification:", WEY.data[0]);
-    } else {
-        console.log("Data array is empty or undefined.");
     }
 }
 
-// 修改会员积分
 if (Huiyuan.test($request.url)) {
     WEY.data.remindPoint = 999999999999; // 积分
-    WEY.data.totalPoint = 999999999999; // 总积分
+    WEY.data.totalPoint = 999999999999; // 积分
 }
 
-// 修改位置
 if (Weizhi.test($request.url)) {
-    if (WEY.regeo && WEY.regeo.pois && WEY.regeo.pois.length > 0) {
-        WEY.regeo.pois[0].name = "隔在远远乡"; // 位置
-    } else {
-        console.log("POIs data is empty or undefined.");
+    if (WEY.regeocode && WEY.regeocode.pois && WEY.regeocode.pois.length > 0) {
+        WEY.regeocode.pois[0].name = "隔在远远乡"; // 位置
     }
 }
 
