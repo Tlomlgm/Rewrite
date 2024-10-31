@@ -58,7 +58,7 @@ if (My.test($request.url)) {
 if (Aiche.test($request.url)) {
     if (WEY.data && WEY.data.length > 0) {
         WEY.data[0].showBrandName = "VV7 GT PHEV"; // 车型
-        WEY.data[0].licenseNumber = "我本将心向明月"; // 车牌
+        WEY.data[0].licenseNumber = "海上月是天上月"; // 车牌
         WEY.data[0].material90Url = "https://s2.loli.net/2024/09/09/YkSMRctE1zjfUyB.png"; // 车体图
     }
 }
@@ -70,7 +70,7 @@ if (Huiyuan.test($request.url)) {
 
 if (Weizhi.test($request.url)) {
     if (WEY.regeocode && WEY.regeocode.pois && WEY.regeocode.pois.length > 0) {
-        WEY.regeocode.pois[0].name = "奈何明月照沟渠"; // 位置
+        WEY.regeocode.pois[0].name = "眼前人是心上人"; // 位置
     }
 }
 
