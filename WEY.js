@@ -59,7 +59,7 @@ if (Aiche.test($request.url)) {
     if (WEY.data && WEY.data.length > 0) {
         WEY.data[0].showBrandName = "VV7 GT PHEV"; // 车型
         WEY.data[0].licenseNumber = "东隅已逝"; // 车牌
-        WEY.data[0].material90Url = "https://s2.loli.net/2024/11/16/iHglrEvM3kLDQ7W.png"; // 车体图
+        WEY.data[0].material90Url = "https://s2.loli.net/2024/11/16/UDTjy2PSKsMYgGB.png"; // 车体图
     }
 }
 
