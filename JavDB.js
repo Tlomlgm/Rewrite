@@ -2,8 +2,8 @@
 JavDB
 
 [rewrite_local]
-^https:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com|api\.ffaoa\.com)\/api\/(v1\/(ads|startup|users)|v4\/movies\/\w+) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/JavDB.js
-^https:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com|api\.ffaoa\.com)\/api\/(v1\/(ads|startup|users)|v4\/movies\/\w+/play\? url script-request-header https://raw.githubusercontent.com/Tlomlgm/Cite/main/JavDB.js
+^https:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com)\/api\/(v1\/(ads|startup|users)|v4\/movies\/\w+) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/JavDB.js
+^https:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com)\/api\/v1\/movies\/\w+\/play\? url script-request-header https://raw.githubusercontent.com/Tlomlgm/Cite/main/JavDB.js
 
 [mitm]
 hostname = api.pxxgg.xyz, api.ujvnmkx.cn, api.yijingluowangluo.xyz, api.hechuangxinxi.xyz, api.ffaoa.com
