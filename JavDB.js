@@ -2,8 +2,8 @@
 JavDB
 
 [rewrite_local]
-^https:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com|api\.ffaoa\.com|tp-iu\.cmastd\.co)\/api\/(v1\/(ads|startup|users)|v4\/movies\/\w+) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/JavDB.js
-^https:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com|api\.ffaoa\.com|tp-iu\.cmastd\.co)\/api\/v1\/movies\/\w+\/play\? url script-request-header https://raw.githubusercontent.com/Tlomlgm/Cite/main/JavDB.js
+^https:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com|api\.ffaoa\.com)\/api\/(v1\/(ads|startup|users)|v4\/movies\/\w+) url script-response-body https://raw.githubusercontent.com/Tlomlgm/Rewrite/main/JavDB.js
+^https:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com|api\.ffaoa\.com)\/api\/v1\/movies\/\w+\/play\? url script-request-header https://raw.githubusercontent.com/Tlomlgm/Cite/main/JavDB.js
 
 [mitm]
 hostname = api.pxxgg.xyz, api.ujvnmkx.cn, api.yijingluowangluo.xyz, api.hechuangxinxi.xyz, api.ffaoa.com
@@ -17,7 +17,7 @@ let body = $response.body;
 if (body) {
   switch (true) {
     // JavDB
-    case /https:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com|api\.ffaoa\.com|tp-iu\.cmastd\.co)\/api\/v\d\/\w+/.test(url):
+    case /https:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com|api\.ffaoa\.com)\/api\/v\d\/\w+/.test(url):
       try {
         let obj = JSON.parse(body);
         if (url.includes("/api/v1/ads")) {
