@@ -29,9 +29,9 @@ var WEY = JSON.parse($response.body);
 const Alter = /contentType=MENU/; // 发现 商城 Tab
 const AD = /(getContentInfo|contentType=APPSECONDAD)/; // 开屏广告
 const My = /getUserInfo/; // 我的
-const Huiyuan = /querySumPoint/; // 会员积分
 const Aiche = /\/vehicle\/acquireVehicles/; // 爱车
-const Weizhi = /regeo/; // 位置
+const HuiYuan = /querySumPoint/; // 会员积分
+const WeiZhi = /v3\/geocode\/regeo/;//位置
 
 if (Alter.test($request.url)) {
     for (var i = 0; i < WEY.data.length; i++) {
@@ -63,12 +63,12 @@ if (Aiche.test($request.url)) {
     }
 }
 
-if (Huiyuan.test($request.url)) {
+if (HuiYuan.test($request.url)) {
     WEY.data.remindPoint = 999999999999; // 积分
     WEY.data.totalPoint = 999999999999; // 积分
 }
 
-if (Weizhi.test($request.url)) {
+if (WeiZhi.test($request.url)) {
     if (WEY.regeocode && WEY.regeocode.pois && WEY.regeocode.pois.length > 0) {
         WEY.regeocode.pois[0].name = " VV7GT PHEV"; // 位置
     }
