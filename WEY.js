@@ -69,8 +69,8 @@ if (HuiYuan.test($request.url)) {
 }
 
 if (WeiZhi.test($request.url)) {
-    if (WEY.regeocode && WEY.regeocode.pois && WEY.regeocode.pois.length > 0) {
-        WEY.regeocode.pois[0].name = " VV7GT PHEV"; // 位置
+    if (WEY.data.regeocode && WEY.regeocode.pois && WEY.regeocode.pois.length > 0) {
+        WEY.data.regeocode.pois[0].name = " VV7GT PHEV"; // 位置
     }
 }
 
